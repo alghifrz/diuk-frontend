@@ -1,0 +1,13 @@
+export { Header } from "./header";
+export { Hero } from "./hero";
+export { BrandsMarquee } from "./brands-marquee";
+export { Problem } from "./problem";
+export { Workflow } from "./workflow";
+export { Features } from "./features";
+export { Solutions } from "./solutions";
+export { Dashboard } from "./dashboard";
+export { Impact } from "./impact";
+export { Testimonials } from "./testimonials";
+export { Pricing } from "./pricing";
+export { Cta } from "./cta";
+export { Footer } from "./footer";

@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #86bb51;
+  --color-primary-dark: #65933a;
+  --color-primary-light: #a8d47c;
+  --color-secondary: #2d3478;
+  --color-secondary-dark: #20265c;
+  --color-secondary-light: #4a5194;
+  --color-background: #f8faf6;
+  --color-surface: #ffffff;
+  --color-surface-container-low: #f1f5ec;
+  --color-surface-container: #e8efe0;
+  --color-surface-container-high: #dde6d2;
+  --color-on-primary: #ffffff;
+  --color-border: #e2e6de;
+  --color-text-muted: #8b929d;
+  --color-on-surface: #1e2430;
+  --color-on-surface-variant: #5f6673;
+  --color-outline: #8b929d;
+  --color-outline-variant: #e2e6de;
+  --color-success: #5e9f3d;
+  --color-warning: #e5a93d;
+  --color-error: #d9534f;
+  --color-info: #4b7bc5;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-sans);
+}
+
+@keyframes login-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-login-float {
+  animation: login-float 6s ease-in-out infinite;
+}
+
+.animate-login-float-delayed {
+  animation: login-float 7s ease-in-out infinite 1.5s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Sections already have py-20; this leaves breathing room under the fixed navbar. */
+section[id] {
+  scroll-margin-top: 1.5rem;
+}
+
+@keyframes brands-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-brands-marquee {
+  animation: brands-marquee 45s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-brands-marquee {
+    animation: none;
+  }
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  user-select: none;
+}
