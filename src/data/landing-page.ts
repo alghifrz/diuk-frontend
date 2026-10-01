@@ -17,11 +17,11 @@ export const landingPage = {
     logo: {
       src: "/logo.webp",
       alt: "DIUK Solution Logo",
-      href: "#",
+      href: "#top",
     },
     navItems: [
-      { label: "How It Works", href: "#how-it-works" },
-      { label: "Product", href: "#product" },
+      { label: "How it works", href: "#how-it-works" },
+      { label: "Features", href: "#features" },
       { label: "Solutions", href: "#solutions" },
       { label: "Pricing", href: "#pricing" },
     ],
@@ -172,8 +172,8 @@ export const landingPage = {
     ],
   },
   features: {
-    id: "product",
-    eyebrow: "Product Capabilities",
+    id: "features",
+    eyebrow: "Features",
     title: "Everything your team needs to turn conversations into growth.",
     description:
       "Engineered for high-volume conversational commerce and appointment businesses.",
@@ -499,8 +499,8 @@ export const landingPage = {
         title: "Product",
         links: [
           { label: "How it works", href: "#how-it-works" },
-          { label: "Customer service", href: "#product" },
-          { label: "Reservations", href: "#product" },
+          { label: "Features", href: "#features" },
+          { label: "Reservations", href: "#features" },
           { label: "Pricing", href: "#pricing" },
         ],
       },

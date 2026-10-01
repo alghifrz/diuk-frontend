@@ -30,7 +30,7 @@ export function Hero() {
   );
 
   return (
-    <section ref={sectionRef} className="relative w-full">
+    <section id="top" ref={sectionRef} className="relative w-full">
       <div className="sticky top-0 h-svh overflow-hidden bg-background">
         <HeroAtmosphere />
 

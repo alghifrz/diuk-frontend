@@ -69,7 +69,7 @@ html {
 
 /* Sections already have py-20; this leaves breathing room under the fixed navbar. */
 section[id] {
-  scroll-margin-top: 1.5rem;
+  scroll-margin-top: 5.5rem;
 }
 
 @keyframes brands-marquee {

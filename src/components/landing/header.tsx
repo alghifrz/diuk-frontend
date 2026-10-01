@@ -24,29 +24,32 @@ export function Header() {
   });
 
   useEffect(() => {
-    const elements = header.navItems
-      .map((item) => document.getElementById(item.href.replace(/^#/, "")))
-      .filter((el): el is HTMLElement => Boolean(el));
+    const ids = header.navItems.map((item) => item.href.replace(/^#/, ""));
 
-    if (elements.length === 0) return;
+    const syncActive = () => {
+      if (window.scrollY < 80) {
+        setActiveHref("");
+        return;
+      }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-        if (visible[0]?.target.id) {
-          setActiveHref(`#${visible[0].target.id}`);
-        } else if (window.scrollY < 80) {
-          setActiveHref("");
+      const marker = 96;
+      let current = "";
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= marker) {
+          current = `#${id}`;
         }
-      },
-      { rootMargin: "-20% 0px -55% 0px", threshold: [0.1, 0.25, 0.5] },
-    );
+      }
+      setActiveHref(current);
+    };
 
-    for (const el of elements) observer.observe(el);
-    return () => observer.disconnect();
+    syncActive();
+    window.addEventListener("scroll", syncActive, { passive: true });
+    window.addEventListener("hashchange", syncActive);
+    return () => {
+      window.removeEventListener("scroll", syncActive);
+      window.removeEventListener("hashchange", syncActive);
+    };
   }, [header.navItems]);
 
   return (
@@ -73,6 +76,7 @@ export function Header() {
             <motion.a
               href={header.logo.href}
               className="flex shrink-0 items-center gap-2"
+              onClick={() => setActiveHref("")}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
             >
