@@ -258,7 +258,7 @@ function HeroSimulation({
 
         <div className="relative aspect-1919/942 w-full bg-surface-container-low">
           <Image
-            src="/ss.png"
+            src="/dashboard.webp"
             alt="DIUK platform live dispatch simulation"
             width={1919}
             height={942}
