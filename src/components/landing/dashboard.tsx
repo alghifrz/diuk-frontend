@@ -347,7 +347,7 @@ function GmvChart({ gmv, active }: { gmv: Dash["gmv"]; active: boolean }) {
 type Activity = Dash["activity"][number];
 type FeedItem = Activity & { id: number };
 
-function LiveFeed({ items, active }: { items: Dash["activity"]; active: boolean }) {
+function LiveFeed({ items, active }: { items: readonly Activity[]; active: boolean }) {
   const reduce = useReducedMotion();
   const n = items.length;
   const counter = useRef(n);
